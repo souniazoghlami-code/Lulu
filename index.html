@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1416">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<title>LULU Headquarter</title>
+<style>
+:root{
+  --bg:#091113;--bg2:#0d171a;--panel:#101d20;--panel2:#142428;--line:#203438;--line2:#2b484e;
+  --ink:#f3efe6;--soft:#b5c0bd;--muted:#70807d;--brass:#c89f56;--brass2:#e0c088;--petrol:#62b8ad;
+  --ok:#7fc6a1;--warn:#e7b462;--danger:#de776f;--shadow:0 22px 60px rgba(0,0,0,.24);
+  --serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:radial-gradient(900px 440px at 85% -8%,rgba(200,159,86,.12),transparent 64%),var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;min-height:100vh}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}.hidden{display:none!important}
+.shell{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:26px 18px;border-right:1px solid var(--line);background:rgba(7,14,16,.84);backdrop-filter:blur(18px);display:flex;flex-direction:column;gap:24px;z-index:5}
+.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:39px;height:39px;border:1px solid var(--brass);border-radius:12px;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--brass2);background:rgba(200,159,86,.08)}.brand b{display:block;letter-spacing:.12em;font-size:12px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.14em;margin-top:2px}
+.nav{display:flex;flex-direction:column;gap:6px}.nav a{color:var(--soft);text-decoration:none;padding:10px 12px;border-radius:10px;display:flex;gap:10px;align-items:center}.nav a.active,.nav a:hover{background:var(--panel);color:var(--ink)}.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--muted)}.nav a.active .nav-dot{background:var(--brass)}
+.side-bottom{margin-top:auto;display:flex;flex-direction:column;gap:10px}.conn{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:11px 12px}.conn strong{display:flex;align-items:center;gap:7px;font-size:12px}.conn p{margin:5px 0 0;color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis}.status-dot{width:7px;height:7px;border-radius:50%;background:var(--warn)}.conn.ok .status-dot{background:var(--ok)}
+.linkbtn,.ghost,.solid,.round{border:none}.linkbtn{background:none;color:var(--brass2);padding:0;font-size:12px;text-align:left}.ghost{border:1px solid var(--line2);background:transparent;border-radius:10px;padding:9px 12px;color:var(--soft)}.ghost:hover{color:var(--ink);border-color:var(--brass)}.solid{background:var(--brass);color:#1a1408;border-radius:11px;padding:10px 14px;font-weight:700}.solid:disabled{opacity:.45}.round{width:42px;height:42px;border-radius:50%;background:var(--brass);color:#1a1408;display:grid;place-items:center;font-size:19px}
+.main{min-width:0;padding:26px 28px 80px}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:26px}.date{color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.clock{font-variant-numeric:tabular-nums;color:var(--brass2);font-size:13px}.top-actions{display:flex;gap:8px;align-items:center}.bell{font-size:11px}
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:22px;margin-bottom:22px}.hero-main{padding:8px 0}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--brass2);margin-bottom:12px}.hero h1{font-family:var(--serif);font-size:clamp(38px,5.2vw,66px);line-height:.98;margin:0 0 14px;font-weight:600;letter-spacing:-.025em}.hero h1 em{font-weight:600;color:var(--brass2)}.hero p{max-width:700px;color:var(--soft);font-size:15px;margin:0;line-height:1.6}.pulse{border:1px solid var(--line2);background:linear-gradient(145deg,rgba(200,159,86,.09),var(--panel));border-radius:18px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:165px}.pulse-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.tag{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.live{display:flex;align-items:center;gap:6px;color:var(--ok)}.live i{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 5px rgba(127,198,161,.08)}.pulse strong{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.15;display:block;margin:13px 0 6px}.pulse p{font-size:13px;color:var(--soft);margin:0}.pulse-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;color:var(--muted);font-size:11px}
+.command{border:1px solid var(--line2);background:var(--panel);border-radius:18px;box-shadow:var(--shadow);padding:13px 14px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:center;margin-bottom:26px}.command textarea{border:none;background:transparent;resize:none;min-height:44px;max-height:120px;padding:11px 6px;outline:none;line-height:1.45}.command textarea::placeholder{color:#667774}.cmd-meta{grid-column:2/-1;color:var(--muted);font-size:10.5px;margin-top:-4px;padding-bottom:2px}.mic.listening{animation:pulse 1.2s infinite}@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(200,159,86,.12)}}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:22px}.stack{display:flex;flex-direction:column;gap:22px}.section{border:1px solid var(--line);background:var(--panel);border-radius:17px;overflow:hidden;box-shadow:0 16px 42px rgba(0,0,0,.14)}.section-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:16px 17px 12px;border-bottom:1px solid var(--line)}.section-head h2{font-family:var(--serif);font-size:21px;margin:0}.section-head span{color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.section-body{padding:14px 16px}
+.next{display:grid;grid-template-columns:100px minmax(0,1fr);gap:14px;align-items:stretch}.next-time{border-radius:14px;background:var(--brass);color:#171207;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px}.next-time strong{font-family:var(--serif);font-size:28px}.next-time span{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.next-card{border:1px solid var(--line);border-radius:14px;padding:14px 15px;background:var(--bg2)}.next-card h3{margin:0 0 4px;font-size:17px}.next-card p{margin:0;color:var(--soft);font-size:12px}.next-card .when{margin-top:10px;color:var(--brass2);font-size:11px}
+.timeline{display:flex;flex-direction:column}.event{display:grid;grid-template-columns:72px 12px minmax(0,1fr);gap:10px;padding:10px 0}.event+.event{border-top:1px solid var(--line)}.event-time{font-variant-numeric:tabular-nums;color:var(--soft);font-size:12px;padding-top:2px}.rail{position:relative}.rail::before{content:"";position:absolute;top:8px;bottom:-18px;left:5px;width:1px;background:var(--line2)}.event:last-child .rail::before{display:none}.rail::after{content:"";position:absolute;top:6px;left:2px;width:7px;height:7px;border-radius:50%;background:var(--muted)}.event.nextone .rail::after{background:var(--brass);box-shadow:0 0 0 4px rgba(200,159,86,.1)}.event-main strong{display:block;font-size:13px}.event-main span{display:block;margin-top:2px;color:var(--muted);font-size:11px}.empty{color:var(--muted);font-size:12px;padding:14px 2px}
+.alerts{display:flex;flex-direction:column;gap:9px}.alert{border:1px solid var(--line);border-left:3px solid var(--petrol);border-radius:12px;padding:11px 12px;background:var(--bg2)}.alert.warning{border-left-color:var(--warn)}.alert.urgent{border-left-color:var(--danger)}.alert strong{display:block;font-size:12px;margin-bottom:2px}.alert p{margin:0;color:var(--soft);font-size:11.5px;line-height:1.45}
+.tasklist{display:flex;flex-direction:column}.task{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0}.task+.task{border-top:1px solid var(--line)}.check{width:19px;height:19px;border-radius:6px;border:1px solid var(--line2);background:transparent;color:var(--ok);padding:0}.task strong{font-size:12.5px;font-weight:600}.task span{display:block;color:var(--muted);font-size:10.5px;margin-top:2px}.priority{font-size:9px!important;text-transform:uppercase;letter-spacing:.08em;color:var(--warn)!important}
+.board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.project{border:1px solid var(--line);background:var(--bg2);border-radius:13px;padding:13px}.project-top{display:flex;justify-content:space-between;gap:8px}.project h3{font-size:13px;margin:0}.pill{font-size:9px;text-transform:uppercase;letter-spacing:.07em;padding:3px 7px;border-radius:999px;background:rgba(98,184,173,.11);color:var(--petrol);white-space:nowrap}.project p{font-size:11px;color:var(--soft);margin:9px 0 0;line-height:1.45}.project small{display:block;color:var(--muted);margin-top:8px;font-size:10px}.project button{margin-top:10px;background:none;border:none;padding:0;color:var(--brass2);font-size:10.5px}
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}.goal{background:var(--panel);padding:15px}.goal b{font-family:var(--serif);font-size:20px;color:var(--brass2)}.goal span{display:block;color:var(--soft);font-size:11px;line-height:1.4;margin-top:4px}
+.chat-wrap{display:flex;flex-direction:column;height:min(700px,calc(100vh - 110px));position:sticky;top:26px}.chat-head{padding:15px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.agent-id{display:flex;gap:10px;align-items:center}.avatar{width:36px;height:36px;border-radius:50%;background:var(--brass);color:#171207;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:18px}.agent-id strong{display:block;font-size:13px}.agent-id span{display:block;color:var(--muted);font-size:10px;margin-top:2px}.chat{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.msg{max-width:91%;border-radius:14px;padding:10px 12px;font-size:12.5px;line-height:1.5;white-space:pre-wrap}.msg.lulu{align-self:flex-start;background:var(--bg2);border:1px solid var(--line);color:var(--soft)}.msg.me{align-self:flex-end;background:rgba(200,159,86,.14);border:1px solid rgba(200,159,86,.24)}.msg b{color:var(--ink)}.suggestions{padding:0 14px 11px;display:flex;gap:6px;flex-wrap:wrap}.suggestions button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:6px 9px;font-size:10px}.composer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--bg2)}.composer textarea{border:1px solid var(--line);background:var(--panel);border-radius:10px;resize:none;min-height:42px;max-height:100px;padding:10px 11px;outline:none;font-size:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#f0eadf;color:#1c2425;padding:10px 14px;border-radius:11px;box-shadow:var(--shadow);font-size:12px;z-index:30;max-width:min(520px,90vw)}
+.mobilebar{display:none}
+@media(max-width:1080px){.shell{grid-template-columns:82px minmax(0,1fr)}.sidebar{padding:24px 12px}.brand>div:last-child,.nav a span:last-child,.conn p,.conn .linkbtn{display:none}.brand{justify-content:center}.nav a{justify-content:center}.conn{display:grid;place-items:center}.grid{grid-template-columns:1fr}.chat-wrap{position:relative;top:auto;height:620px}.hero{grid-template-columns:1fr}.board{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){.shell{display:block}.sidebar{display:none}.main{padding:18px 14px 92px}.topbar{margin-bottom:20px}.hero h1{font-size:43px}.command{grid-template-columns:auto minmax(0,1fr) auto;padding:10px}.cmd-meta{grid-column:1/-1;padding-left:4px}.grid{gap:15px}.stack{gap:15px}.board{grid-template-columns:1fr}.goals{grid-template-columns:1fr}.next{grid-template-columns:88px 1fr}.mobilebar{display:grid;position:fixed;bottom:0;left:0;right:0;grid-template-columns:repeat(4,1fr);background:rgba(8,15,17,.94);backdrop-filter:blur(18px);border-top:1px solid var(--line);z-index:20;padding-bottom:env(safe-area-inset-bottom)}.mobilebar a{color:var(--muted);text-decoration:none;text-align:center;padding:11px 3px 9px;font-size:9px}.mobilebar a b{display:block;color:var(--soft);font-size:15px;margin-bottom:2px}.chat-wrap{height:600px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">L</div><div><b>LULU HQ</b><small>SONJA / EXECUTIVE OS</small></div></div>
+    <nav class="nav">
+      <a class="active" href="#headquarter"><span class="nav-dot"></span><span>Headquarter</span></a>
+      <a href="#kalender"><span class="nav-dot"></span><span>Kalender</span></a>
+      <a href="#focus"><span class="nav-dot"></span><span>Focus</span></a>
+      <a href="#ladezeit"><span class="nav-dot"></span><span>Lade.ZEIT</span></a>
+      <a href="#agent"><span class="nav-dot"></span><span>Lulu Agent</span></a>
+    </nav>
+    <div class="side-bottom">
+      <div class="conn" id="ms-card"><strong><i class="status-dot"></i><span id="ms-title">Microsoft prüfen …</span></strong><p id="ms-account"></p><button class="linkbtn" id="ms-action">Verbinden</button></div>
+      <div class="conn"><strong><i class="status-dot" id="notify-dot"></i><span>Hinweise</span></strong><p id="notify-label">Noch nicht aktiviert</p><button class="linkbtn" id="notify-btn">Aktivieren</button></div>
+    </div>
+  </aside>
+
+  <main class="main" id="headquarter">
+    <header class="topbar"><div><div class="date" id="date-label"></div><div class="clock" id="clock"></div></div><div class="top-actions"><button class="ghost bell" id="refresh-btn">↻ Aktualisieren</button><button class="ghost bell" id="speak-toggle">Vorlesen: aus</button></div></header>
+
+    <section class="hero">
+      <div class="hero-main"><div class="eyebrow">Lulu Headquarter · Agentic Daily Operating System</div><h1 id="greeting">Guten Morgen, <em>Sonja.</em></h1><p>Du musst nicht mehr alles erinnern, zusammensuchen oder eintippen. Lulu liest deinen Tag, schaut nach vorne und sagt dir, was jetzt zählt.</p></div>
+      <div class="pulse"><div><div class="pulse-top"><span class="tag">Agent Pulse</span><span class="tag live"><i></i>live</span></div><strong id="pulse-title">Kalender wird geprüft.</strong><p id="pulse-text">Sobald Microsoft verbunden ist, liest Lulu Termine und Aufgaben automatisch.</p></div><div class="pulse-footer"><span id="pulse-updated">noch nicht synchronisiert</span><span>Europe/Berlin</span></div></div>
+    </section>
+
+    <section class="command" aria-label="Lulu Schnellbefehl">
+      <button class="round mic" id="mic-btn" title="Sprechen">⌁</button>
+      <textarea id="command-input" placeholder="Sag Lulu einfach, was du brauchst: „Was habe ich heute?“ · „Trag morgen 8 Uhr Vincent ein.“ · „Was ist jetzt wichtig?“"></textarea>
+      <button class="solid" id="command-send">Los</button>
+      <div class="cmd-meta" id="speech-hint">Tippen oder sprechen. Bei Kalenderfragen schaut Lulu selbst nach.</div>
+    </section>
+
+    <div class="grid">
+      <div class="stack">
+        <section class="section" id="kalender">
+          <div class="section-head"><h2>Jetzt & als Nächstes</h2><span>Outlook live</span></div>
+          <div class="section-body"><div id="next-event"></div></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>Heute</h2><span id="today-count">Kalender</span></div>
+          <div class="section-body"><div class="timeline" id="timeline"><div class="empty">Kalender wird geladen …</div></div></div>
+        </section>
+
+        <section class="section" id="ladezeit">
+          <div class="section-head"><h2>Lade.ZEIT · Command Board</h2><span>deine laufenden Hüte</span></div>
+          <div class="section-body"><div class="board" id="project-board"></div></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>Future Me</h2><span>North Star</span></div>
+          <div class="goals"><div class="goal"><b>2027</b><span>EA → Management: Business Operations / Prokura als klarer Entwicklungspfad.</span></div><div class="goal"><b>30–35 h</b><span>Langfristige Zielarbeitszeit mit mehr Steuerung und weniger operativem Kleinkram.</span></div><div class="goal"><b>100k</b><span>North-Star-Jahresbrutto bis 2030 – getragen von Verantwortung, Wirkung und Positionierung.</span></div></div>
+        </section>
+      </div>
+
+      <div class="stack">
+        <section class="section" id="focus">
+          <div class="section-head"><h2>Agent Pulse</h2><span>was Aufmerksamkeit braucht</span></div>
+          <div class="section-body"><div class="alerts" id="alerts"><div class="empty">Noch keine Live-Hinweise.</div></div></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>Focus</h2><span>Microsoft To Do</span></div>
+          <div class="section-body"><div class="tasklist" id="tasks"><div class="empty">Aufgaben werden geladen …</div></div></div>
+        </section>
+
+        <section class="section chat-wrap" id="agent">
+          <div class="chat-head"><div class="agent-id"><div class="avatar">L</div><div><strong>Lulu</strong><span>Executive Agent · Kalender · To Do · Prioritäten</span></div></div><button class="linkbtn" id="clear-chat">Neu</button></div>
+          <div class="chat" id="chat"></div>
+          <div class="suggestions"><button data-q="Was habe ich heute?">Heute</button><button data-q="Was ist morgen?">Morgen</button><button data-q="Was ist jetzt am wichtigsten?">Priorität</button><button data-q="Welche offenen Aufgaben habe ich?">To Dos</button></div>
+          <form class="composer" id="chat-form"><textarea id="chat-input" placeholder="Frag Lulu …"></textarea><button class="solid" type="submit">Senden</button></form>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="mobilebar"><a href="#headquarter"><b>⌂</b>HQ</a><a href="#kalender"><b>◷</b>Kalender</a><a href="#focus"><b>✓</b>Focus</a><a href="#agent"><b>✦</b>Lulu</a></nav>
+<div class="toast hidden" id="toast"></div>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const TZ="Europe/Berlin";
+const state={connected:false,profile:null,events:[],tasks:[],alerts:[],lastSync:null,chat:[],previousResponseId:null,speak:localStorage.getItem("lulu-speak")==="1"};
+const PROJECT_KEY="lulu-hq-projects-v1";
+const DEFAULT_PROJECTS=[
+ {id:"marketing",title:"Marketing & PR",status:"laufend",next:"Lady Lade.ZEIT sichtbar machen: LinkedIn, Messepräsenz, Networking.",due:"Probezeitgespräch / 2027"},
+ {id:"pump",title:"Pump Connect · §14a",status:"laufend",next:"Pilotvertrag, Leistungsbeschreibung, Verantwortlichkeiten und Kostenplan zusammenführen.",due:"Vertragsabstimmung 12.10. · 14:30"},
+ {id:"ops",title:"Business Operations",status:"laufend",next:"JF-Struktur, Budgets, Onboarding und Management-Prozesse standardisieren.",due:"fortlaufend"},
+ {id:"it",title:"IT & Telefonie",status:"offen",next:"CTI / Softphone und Anbieterstruktur sauber entscheiden.",due:"offen"},
+ {id:"career",title:"Karrierepfad",status:"laufend",next:"Business Operations Lead / Prokura über sichtbare Ownership vorbereiten.",due:"Probezeitgespräch Januar"},
+ {id:"network",title:"Networking",status:"laufend",next:"Relevante Energie- und Ladeevents gezielt besetzen – Präsenz vor Perfektion.",due:"Q4"}
+];
+let projects=(()=>{try{return JSON.parse(localStorage.getItem(PROJECT_KEY))||DEFAULT_PROJECTS}catch{return DEFAULT_PROJECTS}})();
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function fmtTime(d){const x=new Date(d);return Number.isFinite(x.getTime())?x.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit",timeZone:TZ}):"—"}
+function fmtDate(d,opt={}){return new Date(d).toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",...opt,timeZone:TZ})}
+function eventMs(e){const raw=e?.start?.dateTime||e?.start; if(!raw)return NaN; return new Date(/Z$|[+-]\d\d:\d\d$/.test(raw)?raw:raw+"Z").getTime()}
+function dueMs(t){const raw=t?.due?.dateTime||t?.due; if(!raw)return NaN; return new Date(/Z$|[+-]\d\d:\d\d$/.test(raw)?raw:raw+"Z").getTime()}
+function sameLocalDay(ms,base=Date.now()){return new Intl.DateTimeFormat("sv-SE",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(ms))===new Intl.DateTimeFormat("sv-SE",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(base))}
+function nextLocalDay(ms){const a=new Intl.DateTimeFormat("sv-SE",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(ms));const tomorrow=Date.now()+86400000;return a===new Intl.DateTimeFormat("sv-SE",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(tomorrow))}
+function toast(s){const el=$("#toast");el.textContent=s;el.classList.remove("hidden");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.add("hidden"),3200)}
+function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}
+
+function tick(){const now=new Date();$("#date-label").textContent=now.toLocaleDateString("de-DE",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:TZ});$("#clock").textContent=now.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit",second:"2-digit",timeZone:TZ});const h=Number(now.toLocaleTimeString("de-DE",{hour:"2-digit",hour12:false,timeZone:TZ}).slice(0,2));$("#greeting").innerHTML=`${h<11?"Guten Morgen":h<18?"Guten Tag":"Guten Abend"}, <em>Sonja.</em>`}
+setInterval(tick,1000);tick();
+
+function renderProjects(){const box=$("#project-board");box.innerHTML=projects.map(p=>`<article class="project"><div class="project-top"><h3>${esc(p.title)}</h3><span class="pill">${esc(p.status)}</span></div><p>${esc(p.next)}</p><small>${esc(p.due)}</small><button data-project="${esc(p.id)}">Status wechseln</button></article>`).join("");box.querySelectorAll("button[data-project]").forEach(b=>b.onclick=()=>{const p=projects.find(x=>x.id===b.dataset.project);const order=["offen","laufend","wartet","erledigt"];p.status=order[(order.indexOf(p.status)+1)%order.length];localStorage.setItem(PROJECT_KEY,JSON.stringify(projects));renderProjects()})}
+renderProjects();
+
+function renderMicrosoft(){const card=$("#ms-card"), title=$("#ms-title"), acc=$("#ms-account"), btn=$("#ms-action");card.classList.toggle("ok",state.connected);if(state.connected){title.textContent="Microsoft verbunden";acc.textContent=state.profile?.account||"Outlook + To Do";btn.textContent="Trennen";btn.onclick=()=>location.href="/api/microsoft/logout"}else{title.textContent="Microsoft nicht verbunden";acc.textContent="Kalender + To Do live anbinden";btn.textContent="Verbinden";btn.onclick=()=>location.href="/api/microsoft/login"}}
+async function status(){try{const r=await fetch("/api/microsoft/status",{cache:"no-store"});const d=await r.json();state.connected=!!d.connected;state.profile=d;renderMicrosoft();if(state.connected)await refresh()}catch{state.connected=false;renderMicrosoft()}}
+
+function renderNext(){const now=Date.now();const ev=state.events.map(e=>({...e,_ms:eventMs(e)})).filter(e=>Number.isFinite(e._ms)&&e._ms>=now-10*60000).sort((a,b)=>a._ms-b._ms)[0];const box=$("#next-event");if(!state.connected){box.innerHTML=`<div class="empty">Verbinde Microsoft. Danach sieht Lulu deinen nächsten echten Termin automatisch.</div>`;return}if(!ev){box.innerHTML=`<div class="empty">In den nächsten 48 Stunden ist kein Termin gefunden.</div>`;return}const mins=Math.round((ev._ms-now)/60000);box.innerHTML=`<div class="next"><div class="next-time"><strong>${fmtTime(ev._ms)}</strong><span>${sameLocalDay(ev._ms)?"heute":nextLocalDay(ev._ms)?"morgen":fmtDate(ev._ms)}</span></div><div class="next-card"><h3>${esc(ev.subject)}</h3><p>${esc(ev.location||ev.organizer||"Outlook-Kalender")}</p><div class="when">${mins<=0?"läuft jetzt":mins<60?`in ${mins} Minuten`:`in ${Math.floor(mins/60)} Std. ${mins%60} Min.`}</div></div></div>`}
+function renderTimeline(){const now=Date.now();const list=state.events.map(e=>({...e,_ms:eventMs(e)})).filter(e=>Number.isFinite(e._ms)&&sameLocalDay(e._ms)).sort((a,b)=>a._ms-b._ms);$("#today-count").textContent=`${list.length} Termin${list.length===1?"":"e"}`;if(!list.length){$("#timeline").innerHTML=`<div class="empty">${state.connected?"Heute keine Termine.":"Microsoft verbinden, dann erscheint dein Tageskalender hier."}</div>`;return}const next=list.find(e=>e._ms>=now-10*60000);$("#timeline").innerHTML=list.map(e=>`<div class="event ${next&&e.id===next.id?"nextone":""}"><div class="event-time">${e.isAllDay?"ganztägig":fmtTime(e._ms)}</div><div class="rail"></div><div class="event-main"><strong>${esc(e.subject)}</strong><span>${esc(e.location||e.organizer||"")}</span></div></div>`).join("")}
+function renderTasks(){const now=Date.now();const list=[...state.tasks].sort((a,b)=>{const ai=a.importance==="high"?-1:0,bi=b.importance==="high"?-1:0;if(ai!==bi)return ai-bi;return (dueMs(a)||9e15)-(dueMs(b)||9e15)}).slice(0,8);if(!list.length){$("#tasks").innerHTML=`<div class="empty">${state.connected?"Keine offenen Microsoft-To-Do-Aufgaben gefunden.":"Nach der Microsoft-Verbindung zeigt Lulu hier deine echten To Dos."}</div>`;return}$("#tasks").innerHTML=list.map(t=>{const d=dueMs(t);const meta=[t.listName,Number.isFinite(d)?(d<now?"überfällig":sameLocalDay(d)?"heute":fmtDate(d)):""].filter(Boolean).join(" · ");return `<div class="task"><button class="check" data-task="${esc(t.id)}" data-list="${esc(t.listId)}" title="Erledigen">✓</button><div><strong>${esc(t.title)}</strong><span>${esc(meta)}</span></div>${t.importance==="high"?'<span class="priority">hoch</span>':""}</div>`}).join("");$("#tasks").querySelectorAll(".check").forEach(b=>b.onclick=()=>sendAgent(`Markiere die Aufgabe mit task_id ${b.dataset.task} aus list_id ${b.dataset.list} als erledigt.`))}
+function renderAlerts(){if(!state.alerts.length){$("#alerts").innerHTML='<div class="empty">Gerade nichts Dringendes. Lulu schaut weiter.</div>';return}$("#alerts").innerHTML=state.alerts.map(a=>`<div class="alert ${esc(a.level||"info")}"><strong>${esc(a.title)}</strong><p>${esc(a.text)}</p></div>`).join("")}
+function setPulse(){const now=Date.now();const ev=state.events.map(e=>({...e,_ms:eventMs(e)})).filter(e=>Number.isFinite(e._ms)&&e._ms>=now-10*60000).sort((a,b)=>a._ms-b._ms)[0];if(!state.connected){$("#pulse-title").textContent="Microsoft noch verbinden.";$("#pulse-text").textContent="Danach kann Lulu deinen Tag selbst lesen statt auf Eingaben zu warten.";return}if(state.alerts[0]){$("#pulse-title").textContent=state.alerts[0].title;$("#pulse-text").textContent=state.alerts[0].text}else if(ev){const m=Math.max(0,Math.round((ev._ms-now)/60000));$("#pulse-title").textContent=`Als Nächstes: ${ev.subject}`;$("#pulse-text").textContent=m<60?`Noch ${m} Minuten.`:`Um ${fmtTime(ev._ms)} Uhr.`}else{$("#pulse-title").textContent="Dein Kalender ist ruhig.";$("#pulse-text").textContent="Keine unmittelbare Kollision oder Frist erkannt."}$("#pulse-updated").textContent=state.lastSync?`geprüft ${fmtTime(state.lastSync)}`:"noch nicht synchronisiert"}
+
+function notifyNewAlerts(){if(Notification.permission!=="granted")return;const seen=new Set(JSON.parse(localStorage.getItem("lulu-alert-seen")||"[]"));let changed=false;for(const a of state.alerts){if(seen.has(a.id))continue;seen.add(a.id);changed=true;const text=`${a.title}: ${a.text}`;if(navigator.serviceWorker?.ready){navigator.serviceWorker.ready.then(r=>r.showNotification(a.title,{body:a.text,tag:a.id,icon:"/icon.svg"})).catch(()=>new Notification(a.title,{body:a.text}))}else new Notification(a.title,{body:a.text});if(state.speak&&"speechSynthesis" in window){const u=new SpeechSynthesisUtterance(text);u.lang="de-DE";speechSynthesis.speak(u)}}if(changed)localStorage.setItem("lulu-alert-seen",JSON.stringify([...seen].slice(-80)))}
+function renderAll(){renderNext();renderTimeline();renderTasks();renderAlerts();setPulse();notifyNewAlerts()}
+async function refresh(){if(!state.connected){renderAll();return}$("#refresh-btn").textContent="↻ Prüfe …";try{const r=await fetch("/api/briefing",{cache:"no-store"});const d=await r.json();if(!r.ok)throw new Error(d.error||"Briefing fehlgeschlagen");state.events=d.events||[];state.tasks=d.tasks||[];state.alerts=d.alerts||[];state.lastSync=Date.now();renderAll()}catch(e){toast(e.message);if(String(e.message).includes("Microsoft")){state.connected=false;renderMicrosoft()}}finally{$("#refresh-btn").textContent="↻ Aktualisieren"}}
+$("#refresh-btn").onclick=refresh;setInterval(()=>{if(state.connected)refresh()},120000);
+
+function renderNotify(){const p=("Notification" in window)?Notification.permission:"unsupported";$("#notify-label").textContent=p==="granted"?"Aktiv – Lulu darf dich anstupsen":p==="denied"?"Im Browser blockiert":"Noch nicht aktiviert";$("#notify-dot").style.background=p==="granted"?"var(--ok)":"var(--warn)";$("#notify-btn").textContent=p==="granted"?"Aktiv":"Aktivieren"}
+$("#notify-btn").onclick=async()=>{if(!("Notification" in window)){toast("Dieser Browser unterstützt keine Benachrichtigungen.");return}const p=await Notification.requestPermission();renderNotify();if(p==="granted")toast("Lulu darf dich jetzt an Termine erinnern.")};renderNotify();
+$("#speak-toggle").textContent=`Vorlesen: ${state.speak?"an":"aus"}`;$("#speak-toggle").onclick=()=>{state.speak=!state.speak;localStorage.setItem("lulu-speak",state.speak?"1":"0");$("#speak-toggle").textContent=`Vorlesen: ${state.speak?"an":"aus"}`;toast(state.speak?"Lulu liest dringende Hinweise vor.":"Vorlesen ausgeschaltet.")};
+
+function localContext(){return{projects:projects.map(p=>({title:p.title,status:p.status,next:p.next,due:p.due})),uiTime:new Date().toISOString(),workingHours:"08:00–16:45",goals:["Business Operations Lead / Prokura","Managemententwicklung","Marketing & Networking sichtbar führen"]}}
+function pushMsg(role,text){state.chat.push({role,text});state.chat=state.chat.slice(-20);renderChat()}
+function renderChat(){const c=$("#chat");if(!state.chat.length){c.innerHTML='<div class="msg lulu"><b>Ich bin da.</b> Frag nicht nur – delegier. „Was habe ich heute?“, „Trag morgen 8 Uhr Vincent ein“ oder „Welche Frist übersehe ich?“</div>';return}c.innerHTML=state.chat.map(m=>`<div class="msg ${m.role==="me"?"me":"lulu"}">${md(m.text)}</div>`).join("");c.scrollTop=c.scrollHeight}
+renderChat();
+async function sendAgent(text){text=String(text||"").trim();if(!text)return;pushMsg("me",text);const c=$("#chat");const thinking=document.createElement("div");thinking.className="msg lulu";thinking.textContent="Lulu schaut nach …";c.append(thinking);c.scrollTop=c.scrollHeight;try{const r=await fetch("/api/agent",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:text,previousResponseId:state.previousResponseId,localContext:localContext()})});const d=await r.json();thinking.remove();if(!r.ok)throw new Error(d.error||"Lulu konnte gerade nicht zugreifen.");state.previousResponseId=d.responseId||null;pushMsg("lulu",d.text||"Erledigt.");if((d.actions||[]).length)await refresh()}catch(e){thinking.remove();pushMsg("lulu",e.message)}}
+$("#chat-form").onsubmit=e=>{e.preventDefault();const i=$("#chat-input"),v=i.value;i.value="";sendAgent(v)};$("#chat-input").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#chat-form").requestSubmit()}};$$('.suggestions button').forEach(b=>b.onclick=()=>sendAgent(b.dataset.q));$("#clear-chat").onclick=()=>{state.chat=[];state.previousResponseId=null;renderChat()};
+$("#command-send").onclick=()=>{const i=$("#command-input"),v=i.value.trim();if(!v)return;i.value="";sendAgent(v);location.hash="#agent"};$("#command-input").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("#command-send").click()}};
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let recognition=null;if(SR){recognition=new SR();recognition.lang="de-DE";recognition.interimResults=true;recognition.continuous=false;recognition.onstart=()=>{$("#mic-btn").classList.add("listening");$("#speech-hint").textContent="Ich höre zu …"};recognition.onresult=e=>{$("#command-input").value=[...e.results].map(r=>r[0].transcript).join(" ")};recognition.onend=()=>{$("#mic-btn").classList.remove("listening");$("#speech-hint").textContent="Gesprochenen Text prüfen und auf Los tippen – oder direkt senden."};recognition.onerror=()=>toast("Spracherkennung konnte nicht starten.");$("#mic-btn").onclick=()=>{try{recognition.start()}catch{}}}else{$("#mic-btn").onclick=()=>{$("#command-input").focus();toast("Nutze das Mikrofon deiner iPhone-Tastatur zum Diktieren.")}}
+
+if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js").catch(()=>{});
+status();renderAll();
+})();
+</script>
+</body>
+</html>
